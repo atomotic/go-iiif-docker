@@ -9,7 +9,7 @@ RUN apk add --update alpine-sdk go glib-dev libxml2-dev tiff-dev jpeg-dev imagem
 	&& cd /tmp; git clone https://github.com/thisisaaronland/go-iiif.git \
 	&& cd go-iiif; PKG_CONFIG_PATH=/usr/local/lib/pkgconfig make bin \
 	&& mkdir /iiif; cp bin/* /iiif; mkdir /images /cache \
-	&& apk del alpine-sdk; rm -fr /tmp/vips* /tmp/go-iiif
+	&& apk del alpine-sdk; apk del go; rm -fr /tmp/vips* /tmp/go-iiif
 
 ADD config.json /etc/iiif-config.json
 
